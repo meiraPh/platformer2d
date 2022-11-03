@@ -22,13 +22,19 @@ public class Player : MonoBehaviour
 
     private void HandleMovement()
     {
+        if(Input.GetKey(KeyCode.LeftControl))
+            _currentSpeed = speedRun;
+        else   
+            _currentSpeed = speed;
+
+        
         if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            myRigidbody.velocity = new Vector2(-speed, myRigidbody.velocity.y);
+            myRigidbody.velocity = new Vector2(-_currentSpeed, myRigidbody.velocity.y);
         }
         else if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            myRigidbody.velocity = new Vector2(speed, myRigidbody.velocity.y);
+            myRigidbody.velocity = new Vector2(_currentSpeed, myRigidbody.velocity.y);
         }
 
         if(myRigidbody.velocity.x > 0)
