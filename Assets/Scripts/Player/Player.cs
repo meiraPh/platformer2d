@@ -20,6 +20,12 @@ public class Player : MonoBehaviour
     public float animationDurantion = .3f;
     public Ease ease = Ease.OutBack;
 
+    //Header Animation Player
+    [Header("Animation Player")]
+    public string boolRun = "Run";
+    public Animator animator;
+    public float durationSwipePlayer = .1f;
+
     private float _currentSpeed;
     
     private void Update()
@@ -31,18 +37,40 @@ public class Player : MonoBehaviour
     private void HandleMovement()
     {
         if(Input.GetKey(KeyCode.LeftControl))
+        {
             _currentSpeed = speedRun;
-        else   
+            animator.speed = 2;
+        }
+        else
+        {
             _currentSpeed = speed;
+            animator.speed = 1;
+        }   
+            
 
         
         if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             myRigidbody.velocity = new Vector2(-_currentSpeed, myRigidbody.velocity.y);
+            if (myRigidbody.transform.localScale.x != -1)
+            {
+                myRigidbody.transform.DOScaleX(-1, durationSwipePlayer);
+            }
+            animator.SetBool(boolRun, true);
+
         }
         else if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             myRigidbody.velocity = new Vector2(_currentSpeed, myRigidbody.velocity.y);
+            if (myRigidbody.transform.localScale.x != 1)
+            {
+                myRigidbody.transform.DOScaleX(1, durationSwipePlayer);
+            }
+            animator.SetBool(boolRun, true);
+        }
+        else
+        {
+            animator.SetBool(boolRun, false);
         }
 
         if(myRigidbody.velocity.x > 0)
@@ -57,7 +85,7 @@ public class Player : MonoBehaviour
 
     private void HandleJump()
     {
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             myRigidbody.velocity = Vector2.up* forceJump;
             myRigidbody.transform.localScale = Vector2.one;
