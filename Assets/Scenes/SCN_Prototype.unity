@@ -258,7 +258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 21
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -374,6 +374,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 401762160}
+  - {fileID: 349275290}
   m_Father: {fileID: 1343932348}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -511,6 +512,51 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 9069580248349405312, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
   m_PrefabInstance: {fileID: 1417357647}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &349275289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 349275290}
+  - component: {fileID: 349275291}
+  m_Layer: 0
+  m_Name: UIInGameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &349275290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349275289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 279456145}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349275291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349275289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21cd4075e6e4ca4b8d9ea65ce62e75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiTextCoins: {fileID: 249607589}
 --- !u!1 &355495419
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
+  uiTextCoins: {fileID: 249607589}
 --- !u!4 &401762160
 Transform:
   m_ObjectHideFlags: 0
@@ -3921,6 +3968,19 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
+--- !u!114 &1365567295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310442175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da684dd6df9dae64facc3f9d0814590b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1707148709}
 --- !u!212 &1382949257 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3381466231696810971, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
@@ -4120,7 +4180,9 @@ MonoBehaviour:
   damage: 10
   animator: {fileID: 375142837}
   triggerAttack: Attack
+  triggerKill: Death
   healthBase: {fileID: 1447316541}
+  timeToDestroy: 0.7
 --- !u!4 &1447316539
 Transform:
   m_ObjectHideFlags: 0
@@ -4170,8 +4232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf495b3c72f3164e83c8463cd7e297f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLife: 10
-  DestroyOnKill: 1
+  startLife: 5
+  DestroyOnKill: 0
   delayToKill: 0
   flashColor: {fileID: 1447316542}
 --- !u!114 &1447316542
@@ -4956,6 +5018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 1707148705}
+  healthBase: {fileID: 1707148710}
   friction: {x: -0.5, y: 0}
   speed: 17
   speedRun: 35
@@ -4965,6 +5028,7 @@ MonoBehaviour:
   animationDurantion: 0.1
   ease: 27
   boolRun: Run
+  triggerDeath: Death
   animator: {fileID: 1365567292}
   durationSwipePlayer: 0.1
 --- !u!114 &1707148710
@@ -4980,9 +5044,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLife: 10
-  DestroyOnKill: 1
-  delayToKill: 0.3
-  flashColor: {fileID: 1707148711}
+  DestroyOnKill: 0
+  delayToKill: 0.1
+  flashColor: {fileID: 0}
 --- !u!114 &1707148711
 MonoBehaviour:
   m_ObjectHideFlags: 0
