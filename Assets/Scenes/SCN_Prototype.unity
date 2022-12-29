@@ -522,6 +522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349275290}
   - component: {fileID: 349275291}
+  - component: {fileID: 349275292}
   m_Layer: 0
   m_Name: UIInGameManager
   m_TagString: Untagged
@@ -557,6 +558,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiTextCoins: {fileID: 249607589}
+--- !u!114 &349275292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349275289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7eb60c9105d5034683f8c0b0bf48688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soInt: {fileID: 11400000, guid: 11291d2c5c3b0274a922f7a1709c71b3, type: 2}
+  uiTextValue: {fileID: 249607589}
 --- !u!1 &355495419
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b580a9b9d28d7247be96e8f506374aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
+  coins: {fileID: 11400000, guid: 11291d2c5c3b0274a922f7a1709c71b3, type: 2}
   uiTextCoins: {fileID: 249607589}
 --- !u!4 &401762160
 Transform:
