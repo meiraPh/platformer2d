@@ -5041,6 +5041,9 @@ MonoBehaviour:
   jumpScaleY: 1.07
   jumpScaleX: 0.6
   animationDurantion: 0.1
+  soJumpScaleY: {fileID: 0}
+  soJumpScaleX: {fileID: 0}
+  soAnimationDuration: {fileID: 0}
   ease: 27
   boolRun: Run
   triggerDeath: Death
