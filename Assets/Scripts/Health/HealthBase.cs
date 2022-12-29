@@ -38,13 +38,15 @@ public class HealthBase : MonoBehaviour
 
         if(_currentLife <= 0)
         {
+            flashColor.StopFlashColor();
             Kill();
         }
 
-        if( flashColor != null)
-        {
-            flashColor.Flash();
-        }
+        else
+            if( flashColor != null)
+            {
+                flashColor.Flash();
+            }
     }
 
     public void Kill()

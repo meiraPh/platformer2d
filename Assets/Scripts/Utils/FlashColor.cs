@@ -10,7 +10,7 @@ public class FlashColor : MonoBehaviour
     public Color color = Color.red;
     public float duration = .3f;
 
-    private Tween _currentTween;
+    private List<Tween> _currentTweens = new List<Tween>();
 
     private void OnValidate()
     {
@@ -29,16 +29,25 @@ public class FlashColor : MonoBehaviour
         }
     }
 
+    public void StopFlashColor()
+    {
+        if (_currentTweens != null && _currentTweens.Count > 0)
+        {
+            for (int i = _currentTweens.Count - 1; i >= 0; --i)
+            {
+                _currentTweens[i].Kill();
+                _currentTweens.RemoveAt(i);
+            }
+            spriteRenderers.ForEach( i=> i.color = Color.white);
+        }
+    }
+
     public void Flash()
     {
-        if(_currentTween != null)
-        {
-            _currentTween.Kill();
-            spriteRenderers.ForEach(i => i.color = Color.white);
-        }
+        StopFlashColor();
         foreach(var x in spriteRenderers)
         {
-            _currentTween = x.DOColor(color, duration).SetLoops(2, LoopType.Yoyo);
+            _currentTweens.Add(x.DOColor(color, duration).SetLoops(2, LoopType.Yoyo));
         }
     }
 }
