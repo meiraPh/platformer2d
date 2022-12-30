@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14f88c397dcc4794d85bf462bb5d45ae, type: 3}
-  m_Name: SOFloat_JumpX
+  m_Script: {fileID: 11500000, guid: a3158355fb7b02d4ebe4bb008d67fd25, type: 3}
+  m_Name: SOString_Player01_name
   m_EditorClassIdentifier: 
-  value: 0.6
+  value: 
