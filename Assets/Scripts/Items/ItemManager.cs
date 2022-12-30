@@ -9,6 +9,9 @@ public class ItemManager : Singleton<ItemManager>
     public SOInt coins;
     public TextMeshProUGUI uiTextCoins;
 
+    public SOInt trophy;
+    public TextMeshProUGUI uiTextTrophy;
+
     private void Start()
     {
         Reset();
@@ -17,11 +20,18 @@ public class ItemManager : Singleton<ItemManager>
     private void Reset()
     {
         coins.value = 0;
+        trophy.value = 0;
     }
 
     public void AddCoins(int amount = 1)
     {
         coins.value += amount;
+        UpdateUi();
+    }
+
+    public void AddTrophy(int amount = 1)
+    {
+        trophy.value += amount;
         UpdateUi();
     }
 
