@@ -6,8 +6,11 @@ using Company.Core.Singleton;
 
 public class ItemManager : Singleton<ItemManager>
 {
-    public int coins;
+    public SOInt coins;
     public TextMeshProUGUI uiTextCoins;
+
+    public SOInt trophy;
+    public TextMeshProUGUI uiTextTrophy;
 
     private void Start()
     {
@@ -16,19 +19,26 @@ public class ItemManager : Singleton<ItemManager>
 
     private void Reset()
     {
-        coins = 0;
+        coins.value = 0;
+        trophy.value = 0;
     }
 
     public void AddCoins(int amount = 1)
     {
-        coins += amount;
+        coins.value += amount;
+        UpdateUi();
+    }
+
+    public void AddTrophy(int amount = 1)
+    {
+        trophy.value += amount;
         UpdateUi();
     }
 
     private void UpdateUi()
     {
         //uiTextCoins.text = coins.ToString();
-        UIInGameManager.UpdateTextCoins(coins.ToString());
+        //UIInGameManager.UpdateTextCoins(coins.value.ToString());
     }
 
 }
