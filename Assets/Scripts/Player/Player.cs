@@ -51,8 +51,6 @@ public class Player : MonoBehaviour
             _currentSpeed = soPlayerSetup.speed;
             _currentPlayer.speed = 1;
         }   
-            
-
         
         if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
@@ -94,7 +92,9 @@ public class Player : MonoBehaviour
         {
             myRigidbody.velocity = Vector2.up * soPlayerSetup.forceJump;
             myRigidbody.transform.localScale = Vector2.one;
+            
             DOTween.Kill(myRigidbody.transform);
+
             HandleScaleJump();
         }
     }
