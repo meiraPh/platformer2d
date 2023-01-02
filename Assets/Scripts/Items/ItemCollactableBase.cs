@@ -28,7 +28,8 @@ public class ItemCollactableBase : MonoBehaviour
 
     protected virtual void Collect()
     {
-        gameObject.SetActive(false);
+        if(graphicItem != null) graphicItem.SetActive(false);
+        //Invoke("HideObject", timeToHide);
         OnCollect();
     }
 
@@ -40,4 +41,3 @@ public class ItemCollactableBase : MonoBehaviour
         }
     }
 }
-
