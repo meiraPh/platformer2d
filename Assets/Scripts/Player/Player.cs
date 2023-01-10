@@ -16,6 +16,13 @@ public class Player : MonoBehaviour
 
     private Animator _currentPlayer;
 
+    [Header("Jump Checker Collision")]
+    public Collider2D collider2D;
+    public float distToGround;
+    public float spaceToGround = .1f;
+    public ParticleSystem jumpVFX;
+
+
     private void Awake()
     {
         
@@ -25,6 +32,17 @@ public class Player : MonoBehaviour
         }
 
         _currentPlayer = Instantiate(soPlayerSetup.player, transform);
+
+        if (collider2D!=null)
+        {
+            distToGround = collider2D.bounds.extents.y;
+        }
+    }
+
+    private bool isGrounded()
+    {
+        Debug.DrawRay(transform.position, -Vector2.up, Color.magenta, distToGround + spaceToGround);
+        return Physics2D.Raycast(transform.position, -Vector2.up, distToGround + spaceToGround);
     }
 
     private void OnPlayerKill()
@@ -88,7 +106,7 @@ public class Player : MonoBehaviour
 
     private void HandleJump()
     {
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded())
         {
             myRigidbody.velocity = Vector2.up * soPlayerSetup.forceJump;
             myRigidbody.transform.localScale = Vector2.one;
@@ -96,7 +114,14 @@ public class Player : MonoBehaviour
             DOTween.Kill(myRigidbody.transform);
 
             HandleScaleJump();
+            PlayerJumpVFX();
         }
+    }
+
+    private void PlayerJumpVFX()
+    {
+        VFXManager.Instance.PlayVFXByType(VFXManager.VFXType.JUMP, transform.position);
+        //if(jumpVFX != null) jumpVFX.Play();
     }
 
     private void HandleScaleJump()
