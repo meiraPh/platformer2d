@@ -9,7 +9,9 @@ AudioMixerSnapshotController:
   m_Name: Menu
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 09b3a875077134b48b686c40a84e81db
-  m_FloatValues: {}
+  m_FloatValues:
+    f4554f52da5fe2641a61d33681be3d25: -29.519157
+    20828d1fdf0e8554a93807bfaa3e9d4a: -12.498478
   m_TransitionOverrides: {}
 --- !u!244 &-3849107204469751596
 AudioMixerEffectController:
@@ -132,7 +134,11 @@ AudioMixerSnapshotController:
   m_Name: Ingame
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: c0990b9d2fcba73409ab06334b93afe5
-  m_FloatValues: {}
+  m_FloatValues:
+    f4554f52da5fe2641a61d33681be3d25: -0.00389307
+    afd782f506e2b354e80fc1b605144176: 0.43
+    d2ac48099d252ed4091188c24b944cdc: -10.4748535
+    20828d1fdf0e8554a93807bfaa3e9d4a: -6.991066
   m_TransitionOverrides: {}
 --- !u!244 &2003928179167935534
 AudioMixerEffectController:
