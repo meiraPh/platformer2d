@@ -33,7 +33,7 @@ public class ItemCollactableBase : MonoBehaviour
     {
         if (colliders != null)
         {
-            for (int i = 0; i < colliders.Length; ++i)
+            for (int i = 0; i < colliders.Length; i++)
             {
                 colliders[i].enabled = enabled;
             }
