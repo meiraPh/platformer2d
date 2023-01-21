@@ -10,7 +10,7 @@ public class ItemCollactableBase : MonoBehaviour
     public GameObject graphicItem;
 
     [Header("Sounds")]
-    public AudioSource audioSource;
+    public AudioSource audioSource; 
 
 
     private Collider2D[] colliders;
