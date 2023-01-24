@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class EnemyBase : MonoBehaviour
 
     public float timeToDestroy = .7f;
 
+    public AudioSource audioSourceKill;
+
     private void Awake()
     {
         if(healthBase != null)
@@ -26,6 +29,7 @@ public class EnemyBase : MonoBehaviour
     {
         healthBase.Onkill -= OnEnemyKill;
         PlayKillAnimation();
+        if (audioSourceKill != null) audioSourceKill.Play();
         Destroy(gameObject, timeToDestroy);
     }
 
