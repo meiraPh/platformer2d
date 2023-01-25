@@ -14,7 +14,7 @@ public class EndGame : MonoBehaviour
             CallEndGame();
         }
     }
-
+    
     public void CallEndGame()
     {
         uiEndGame.SetActive(true);
