@@ -11,6 +11,7 @@ public class PlayerDestroyHelper : MonoBehaviour
         if (player != null)
         {
             player.DestroyMe();
+            
         }
         
     }

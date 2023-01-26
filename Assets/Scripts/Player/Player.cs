@@ -120,6 +120,7 @@ public class Player : MonoBehaviour
             {
             audioSource.Play();
             }
+
             HandleScaleJump();
             PlayerJumpVFX();
         }

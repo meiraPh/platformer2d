@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 6413013834153556191, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
   soStringName: {fileID: 11400000, guid: 799effd9ecfd4e441a4bfbf2691cdf91, type: 2}
-  friction: {x: -0.5, y: 0}
-  speed: 17
-  speedRun: 35
+  friction: {x: -0.6, y: 0}
+  speed: 20
+  speedRun: 40
   forceJump: 25
   soJumpScaleY: 1.07
   soJumpScaleX: 0.6
   soAnimationDuration: 0.1
-  ease: 27
+  ease: 9
   boolRun: Run
   triggerDeath: Death
-  durationSwipePlayer: 0.1
+  durationSwipePlayer: 0.13

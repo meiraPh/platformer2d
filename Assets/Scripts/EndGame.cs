@@ -12,6 +12,7 @@ public class EndGame : MonoBehaviour
         if(collision.transform.CompareTag(tagToCompare))
         {
             CallEndGame();
+            Time.timeScale = 0;
         }
     }
     
