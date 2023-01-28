@@ -24,6 +24,10 @@ public class Player : MonoBehaviour
 
     [Header("Audio Souce")]
     public AudioSource audioSource;
+    
+    public GameObject menuGameOver;
+
+    private bool _playerAlive;
 
 
     private void Awake()
@@ -40,6 +44,8 @@ public class Player : MonoBehaviour
         {
             distToGround = collider2D.bounds.extents.y;
         }
+
+        _playerAlive = true;
     }
 
     private bool isGrounded()
@@ -52,6 +58,11 @@ public class Player : MonoBehaviour
     {
         healthBase.Onkill-=OnPlayerKill;
         _currentPlayer.SetTrigger(soPlayerSetup.triggerDeath);
+
+        collider2D.enabled = false;
+        myRigidbody.gravityScale = 0;
+        _playerAlive = false;
+        menuGameOver.SetActive(true);
     }
     
     private void Update()
@@ -62,6 +73,8 @@ public class Player : MonoBehaviour
 
     private void HandleMovement()
     {
+        if(!_playerAlive)
+            return;
         if(Input.GetKey(KeyCode.LeftControl))
         {
             _currentSpeed = soPlayerSetup.speedRun;
@@ -109,6 +122,9 @@ public class Player : MonoBehaviour
 
     private void HandleJump()
     {
+        if(!_playerAlive)
+            return;
+        
         if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded())
         {
             myRigidbody.velocity = Vector2.up * soPlayerSetup.forceJump;

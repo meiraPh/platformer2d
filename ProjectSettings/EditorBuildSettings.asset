@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SCN_Prototype.unity
     guid: 4f97e49dc22d3c64991496f45b5f3d17
+  - enabled: 1
+    path: Assets/Scenes/SCN_Creditos.unity
+    guid: 7549ec564dcface4698af27eb0adaa50
   m_configObjects: {}
