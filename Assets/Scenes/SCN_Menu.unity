@@ -2289,6 +2289,26 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7379386009516475130, guid: 8e50ec827e04dc44ca821baed30b85fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379386009516475130, guid: 8e50ec827e04dc44ca821baed30b85fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1345474466}
+    - target: {fileID: 7379386009516475130, guid: 8e50ec827e04dc44ca821baed30b85fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Load
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379386009516475130, guid: 8e50ec827e04dc44ca821baed30b85fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LoadScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379386009516475130, guid: 8e50ec827e04dc44ca821baed30b85fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7757464301418711875, guid: 8e50ec827e04dc44ca821baed30b85fd, type: 3}
       propertyPath: m_text
       value: Credits
@@ -2376,6 +2396,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8564810546342764934, guid: 8e50ec827e04dc44ca821baed30b85fd, type: 3}
   m_PrefabInstance: {fileID: 1345474464}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1345474466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347969458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca5e524bdd1b32469bf710f1b870aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1393194105
 GameObject:
   m_ObjectHideFlags: 0

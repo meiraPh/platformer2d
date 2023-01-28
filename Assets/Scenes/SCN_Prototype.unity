@@ -6269,6 +6269,7 @@ MonoBehaviour:
   spaceToGround: 0.1
   jumpVFX: {fileID: 1259500049}
   audioSource: {fileID: 1817257880}
+  menuGameOver: {fileID: 1897433843669454808}
 --- !u!114 &1707148710
 MonoBehaviour:
   m_ObjectHideFlags: 0
